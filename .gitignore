@@ -1,0 +1,119 @@
+# Dependências do .NET
+**/bin/
+**/obj/
+**/packages/
+**/.nuget/
+
+# Dependências do React
+**/node_modules/
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+
+# Build outputs
+**/dist/
+**/build/
+**/out/
+**/wwwroot/
+
+# Arquivos de usuário do Visual Studio
+**/.vs/
+**/.vscode/
+**/*.user
+**/*.suo
+**/*.sln.docstates
+
+# Arquivos de configuração local
+**/appsettings.Development.json
+**/appsettings.Local.json
+**/.env
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
+
+# Logs
+**/logs/
+**/Logs/
+**/*.log
+**/wwwroot/logs/
+
+# Arquivos temporários
+**/tmp/
+**/temp/
+**/*.tmp
+**/*.temp
+**/*.cache
+
+# Cobertura de testes
+**/coverage/
+**/TestResults/
+**/*.coverage
+**/*.coveragexml
+**/*.trx
+
+# Publicação
+**/publish/
+**/Publish/
+**/*.pubxml
+**/*.pubxml.user
+
+# Arquivos de projeto específicos
+**/launchSettings.json
+**/Properties/launchSettings.json
+
+# Banco de dados local
+**/*.mdf
+**/*.ldf
+**/*.db
+**/*.sqlite
+**/*.sqlite3
+
+# Relatórios de análise
+**/CodeCoverage/
+**/StyleCopReport.xml
+
+# Arquivos do React específicos
+**/.eslintcache
+**/.prettierrc
+**/storybook-static/
+**/build-storybook.log
+
+# IDE específicos
+**/.idea/
+**/*.swp
+**/*.swo
+*~
+. DS_Store
+
+# Arquivos de empacotamento
+**/*.nupkg
+**/*.snupkg
+
+# Arquivos gerados automaticamente
+**/GeneratedCode/
+**/ServiceReferences/
+**/clientbin/
+
+# Arquivos de migração específicos (se você quiser manter migrações, remova a próxima linha)
+# **/Migrations/*.Designer.cs
+# **/Migrations/*.sql
+
+# Arquivos grandes que não devem estar no repositório
+**/*.dll
+**/*.exe
+**/*.pdb
+**/*.so
+**/*.dylib
+
+# Arquivos de backup
+**/*.bak
+**/*.backup
+**/*.old
+
+# Arquivos de chave/certificado
+**/*.pfx
+**/*.p12
+**/*.key
+**/*.crt
+**/*.cer
