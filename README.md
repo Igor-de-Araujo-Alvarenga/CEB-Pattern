@@ -4,6 +4,55 @@
 
 ---
 
+## Overflow
+
+```mermaid
+flowchart LR
+    subgraph external["External world"]
+        R[REST / JSON]
+        S[SOAP / XML]
+        G[gRPC]
+        Q[GraphQL]
+        M[Queue / Broker]
+        W[Webhook]
+    end
+
+    subgraph channel["Channel — protocol translation only"]
+        C["IChannel&lt;TInput, TEvent&gt;\n─────────────────\n↳ reads incoming input\n↳ emits one typed event\n↳ zero business logic"]
+    end
+
+    subgraph bus["Event Bus"]
+        B[("IEventBus\n─────────\ntranslate · dispatch\nidempotency")]
+    end
+
+    subgraph effect["Effect — pure business logic"]
+        E["IEffect&lt;TEvent&gt;\n─────────────────\n↳ validate / route / decide\n↳ zero I/O\n↳ emits new events\n↳ no dependencies"]
+    end
+
+    subgraph bridge["Bridge — all I/O lives here"]
+        P["Payment\nREST"]
+        ERP["ERP\nSOAP"]
+        INV["Inventory\ngRPC"]
+        ANA["Analytics\nGraphQL"]
+        EMAIL["Email\nSMTP"]
+        AI1["AI — Prompt\ntemplate engine"]
+        AI2["AI — Chat\nstreaming tokens"]
+    end
+
+    R & S & G & Q & M & W --> C
+    C -->|"typed event"| B
+    B -->|"dispatch"| E
+    B -->|"dispatch"| P & ERP & INV & ANA & EMAIL & AI1 & AI2
+    E -->|"new events"| B
+    P & ERP & INV & ANA & EMAIL & AI1 & AI2 -->|"result event"| B
+
+    style channel fill:#f3f0ff,stroke:#7c6fd4
+    style effect  fill:#e8f8f2,stroke:#1d9e75
+    style bridge  fill:#fdf0eb,stroke:#d85a30
+    style bus     fill:#f5f4f0,stroke:#888780
+    style external fill:#f5f4f0,stroke:#b4b2a9
+```
+
 ## English
 
 ### Overview
